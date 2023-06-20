@@ -7,7 +7,7 @@ using std::array;
 
 long long int accumulator = 0; // our register for holding values
 array<int, MEMORY_SPACE> memory; // memory of our Simpletron computer
-int location = 0;
+int location = 0; // tracks current location in memory
 
 int main() {
     
