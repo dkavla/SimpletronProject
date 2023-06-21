@@ -10,25 +10,16 @@ array<int, MEMORY_SPACE> memory; // memory of our Simpletron computer
 int location = 0; // tracks current location in memory
 
 int main() {
-    // Test program 1
-    // memory[0] = 1007;
-    // memory[1] = 1008;
-    // memory[2] = 2007;
-    // memory[3] = 3008;
-    // memory[4] = 2109;
-    // memory[5] = 1109;
-    // memory[6] = 4300;
-
-    // Test program 2
-    // memory[0] = 1009;
-    // memory[1] = 1010;
-    // memory[2] = 2009;
-    // memory[3] = 3110;
-    // memory[4] = 4107;
-    // memory[5] = 1109;
-    // memory[6] = 4300;
-    // memory[7] = 1110;
-    // memory[8] = 4300;
+    // Sentinel-controlled loop that reads positive numbers and computes
+    // and displays their sum
+    memory[0] = 1008;
+    memory[1] = 2008;
+    memory[2] = 4106;
+    memory[3] = 3009;
+    memory[4] = 2109;
+    memory[5] = 4000;
+    memory[6] = 1109;
+    memory[7] = 4300;
 
     int operation = 0; // holds the operation code
     int operandLoc = 0; // stores the operand location
