@@ -8,39 +8,39 @@ using std::cout;
 using std::cin;
 using std::array;
 
-void read(array<int, MEMORY_SPACE> mem, int &loc) {
+void read(array<int, MEMORY_SPACE>& mem, int &loc) {
     cout << "Enter value: ";
     cin >> mem[loc]; // read to location loc in memory
     return;
 }
 
-void write(array<int, MEMORY_SPACE> mem, int &loc) {
+void write(array<int, MEMORY_SPACE>& mem, int &loc) {
     cout << mem[loc] << '\n'; // output the value stored at loc in memory
     return;
 }
 
-void load(array<int, MEMORY_SPACE> mem, int &loc, long long &accum) {
+void load(array<int, MEMORY_SPACE>& mem, int &loc, long long &accum) {
     accum = mem[loc]; // load the value located at loc in memory to accumulator
     return;
 }
 
-void store(array<int, MEMORY_SPACE> mem, int &loc, long long &accum) {
+void store(array<int, MEMORY_SPACE>& mem, int &loc, long long &accum) {
     mem[loc] = accum; // store current value of accumulator in location loc in memory
     accum = 0; // set the current accumulator to be zero after storing
     return;
 }
 
-void add(array<int, MEMORY_SPACE> mem, int &loc, long long &accum) {
+void add(array<int, MEMORY_SPACE>& mem, int &loc, long long &accum) {
     accum += mem[loc]; // add value stored at loc in memory to accumulator
     return;
 }
 
-void subtract(array<int, MEMORY_SPACE> mem, int &loc, long long &accum) {
+void subtract(array<int, MEMORY_SPACE>& mem, int &loc, long long &accum) {
     accum -= mem[loc]; // subtract value from loc in memory from accumulator
     return;
 }
 
-void divide(array<int, MEMORY_SPACE> mem, int &loc, long long &accum) {
+void divide(array<int, MEMORY_SPACE>& mem, int &loc, long long &accum) {
     // division by zero results in error; value must be greater than or less
     // than zero in order to get a defined result
     if (mem[loc] == 0) {
@@ -51,7 +51,7 @@ void divide(array<int, MEMORY_SPACE> mem, int &loc, long long &accum) {
     return;
 }
 
-void multiply(array<int, MEMORY_SPACE> mem, int &loc, long long &accum) {
+void multiply(array<int, MEMORY_SPACE>& mem, int &loc, long long &accum) {
     accum *= mem[loc]; // accumulator is multiplied by the value at loc in memory
     return;
 }
@@ -68,6 +68,8 @@ void branchNeg(int &loc, long long &accum, int &newPos) {
     try {
         if (accum < 0) {
             loc = newPos;
+        } else {
+            loc++;
         }
         return;
     } catch (std::out_of_range &outRng) {
