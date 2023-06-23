@@ -70,4 +70,4 @@ void branchZero(int& loc, long double& accum, int& newPos);
 
 //  Code = 43
 // halt() => halt the program
-void halt();
+void halt(long double& accum, int& inCtr, int& intReg, int& opCode, int& operand);
