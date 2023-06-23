@@ -1,11 +1,16 @@
 
 #include "operations.h"
-#include <cstdlib>
+#include <algorithm>
+#include <iomanip>
 #include <stdexcept>
 #include <iostream>
 #include <array>
 using std::cout;
 using std::cin;
+using std::setw;
+using std::setfill;
+using std::left;
+using std::right;
 using std::array;
 
 void read(array<double, MEMORY_SPACE>& mem, int &loc) {
@@ -90,6 +95,18 @@ void branchZero(int &loc, long double& accum, int &newPos) {
     }
 }
 
-void halt() {
+void halt(long double& accum, int& inCtr, int& intReg, int& opCode, int& operand) {
+    cout << "*** Simpletron execution terminated ***\n";
+
+    cout << "REGISTERS:\n";
+    
+    cout << left << "accumulator          " << right << "+" << setw(4) << setfill('0') << accum << '\n';
+    cout << left << "instructionCounter      " << right << setw(2) << setfill('0') << inCtr << '\n';
+    cout << left << "instructionRegister  " << right << "+" << setw(4) << setfill('0') << intReg << '\n';
+    cout << left << "operationCode           " << right << setw(2) << setfill('0') << opCode << '\n';
+    cout << left << "operand                 " << right << setw(2) << setfill('0') << operand << '\n';
+
+    cout << "\nMEMORY:\n";
+
     exit(0);
 }
