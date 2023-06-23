@@ -5,30 +5,57 @@
 using std::cout;
 using std::array;
 
-long long int accumulator = 0; // our register for holding values
-array<int, MEMORY_SPACE> memory; // memory of our Simpletron computer
+long double accumulator = 0; // our register for holding values
+array<double, MEMORY_SPACE> memory; // memory of our Simpletron computer
 int location = 0; // tracks current location in memory
 
 int main() {
     // Sentinel-controlled loop that reads positive numbers and computes
     // and displays their sum
-    memory[0] = 1008;
-    memory[1] = 2008;
-    memory[2] = 4106;
-    memory[3] = 3009;
-    memory[4] = 2109;
-    memory[5] = 4000;
-    memory[6] = 1109;
-    memory[7] = 4300;
+    // memory[0] = 1008;
+    // memory[1] = 2008;
+    // memory[2] = 4106;
+    // memory[3] = 3009;
+    // memory[4] = 2109;
+    // memory[5] = 4000;
+    // memory[6] = 1109;
+    // memory[7] = 4300;
 
-    int operation = 0; // holds the operation code
-    int operandLoc = 0; // stores the operand location
+
+    // Counter controlled loop that reads positive and negative numbers
+    // and then computes the average once counter equals zero
+    
+    memory[14] = 7; // counter variable
+    memory[15] = 7; // divisor for calculating average
+    memory[16] = 1; // decrementer; stays constant
+
+    // Instructions:
+    memory[0] = 1019; 
+    memory[1] = 2019; 
+    memory[2] = 3017;
+    memory[3] = 2117;
+    memory[4] = 2014;
+    memory[5] = 3116;
+    memory[6] = 4209; // branchZero
+    memory[7] = 2114;
+    memory[8] = 4000; // branch
+    memory[9] = 2017;
+    memory[10] = 3215;
+    memory[11] = 2118;
+    memory[12] = 1118;
+    memory[13] = 4300;
+
+
+    int operation; // holds the operation code
+    int operandLoc; // the operand location in memory
+    int instruction; // holds instruction, cast from double to int
 
     while (true) {
-        operation = (memory[location] % 10000 - memory[location] % 100) / 100; // fetch operation code part of instruction
-        operandLoc = memory[location] % 100; // fetch location of operand part of instruction
+        instruction = static_cast<int>(memory[location]); 
+        operation = (instruction % 10000 - instruction % 100) / 100; // fetch operation code part of instruction
+        operandLoc = instruction % 100; // fetch location of operand part of instruction
 
-        cout << "\nCurrent Operation Code = " << operation << "\n";
+        cout << "Current Operation Code = " << operation << "\n";
         // evaluate the operation code
         switch (operation) {
             
@@ -91,6 +118,7 @@ int main() {
                 cout << "Location (Before branchZero): " << location << '\n';
                 branchZero(location, accumulator, operandLoc);
                 cout << "Location (After branchZero): " << location << '\n';
+                break;
             case 43:
                 cout << "Program Terminated.\n";
                 halt();
