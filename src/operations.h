@@ -23,33 +23,33 @@ void write(array<int, MEMORY_SPACE>& mem, int& loc);
 /*  Load/Store Operations   */
 //  Code = 20
 //  load() => load a word from location in memory into accumulator
-void load(array<int, MEMORY_SPACE>& mem, int& loc, long long int& accum);
+void load(array<int, MEMORY_SPACE>& mem, int& loc, long double& accum);
 
 //  Code = 21
 //  store() => stores a word from the accumulator into a specific location in memory
-void store(array<int, MEMORY_SPACE>& mem, int& loc, long long int& accum);
+void store(array<int, MEMORY_SPACE>& mem, int& loc, long double& accum);
 
 
 /*  Arithmetic Operations   */
 //  Code = 30
 //  add() => add a word from location in memory to the word in the
 //  accumulator (leaving result in accumulator)
-void add(array<int, MEMORY_SPACE>& mem, int& loc, long long int& accum);
+void add(array<int, MEMORY_SPACE>& mem, int& loc, long double& accum);
 
 //  Code = 31
 //  subtract() => subtract a word from location in memory from the
 //  word in accumulator (leaving result in accumulator)
-void subtract(array<int, MEMORY_SPACE>& mem, int& loc, long long int& accum);
+void subtract(array<int, MEMORY_SPACE>& mem, int& loc, long double& accum);
 
 //  Code = 32
 //  divide() => divide a word from a location in memory into the
 //  word in the accumulator (leaving result in accumulator)
-void divide(array<int, MEMORY_SPACE>& mem, int& loc, long long int& accum);
+void divide(array<int, MEMORY_SPACE>& mem, int& loc, long double& accum);
 
 //  Code = 33
 //  multiply() => multiply a word from a location in memory by the 
 //  word in accumulator (leaving result in accumulator)
-void multiply(array<int, MEMORY_SPACE>& mem, int& loc, long long int& accum);
+void multiply(array<int, MEMORY_SPACE>& mem, int& loc, long double& accum);
 
 
 
@@ -61,12 +61,12 @@ void branch(int& loc, int& newPos);
 //  Code = 41
 //  branchNeg() => branch to specific location in memory if accumulator
 //  is negative
-void branchNeg(int& loc, long long int& accum, int& newPos);
+void branchNeg(int& loc, long double& accum, int& newPos);
 
 //  Code = 42
 //  branchzero() => branch to specific location in memory if accumulator
 //  is zero
-void branchZero(int& loc, long long int& accum, int& newPos);
+void branchZero(int& loc, long double& accum, int& newPos);
 
 //  Code = 43
 // halt() => halt the program
