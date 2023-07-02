@@ -11,6 +11,37 @@ int instructionCounter = 0; // tracks current location in memory
 
 int main() {
 
+    // memory[0] = 1008;
+    // memory[1] = 2008;
+    // memory[2] = 4106;
+    // memory[3] = 3009;
+    // memory[4] = 2109;
+    // memory[5] = 4000;
+    // memory[6] = 1109;
+    // memory[7] = 4300;
+
+    memory[14] = 7;
+    memory[15] = 7;
+    memory[16] = 1;
+    memory[17] = 0;
+    memory[18] = 0;
+
+    memory[0] = 1019;
+    memory[1] = 2019;
+    memory[2] = 3017;
+    memory[3] = 2117;
+    memory[4] = 2014;
+    memory[5] = 3116;
+    memory[6] = 4209;
+    memory[7] = 2114;
+    memory[8] = 4000;
+    memory[9] = 2017;
+    memory[10] = 3215;
+    memory[11] = 2118;
+    memory[12] = 1118;
+    memory[13] = 4300;
+    
+
     int operationCode; // holds the operation code
     int operand; // the operand location in memory
     int instructionRegister; // holds instruction, cast from double to int
@@ -85,7 +116,7 @@ int main() {
                 cout << "Location (After branchZero): " << instructionCounter << '\n';
                 break;
             case 43:
-                halt(accumulator, instructionCounter, instructionRegister, operationCode, operand);
+                halt(memory, accumulator, instructionCounter, instructionRegister, operationCode, operand);
             default:
                 cout << "Error: Invalid operation code input!\n";
                 exit(1);
