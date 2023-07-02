@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include <iostream>
 #include <array>
+#include <cmath>
 using std::cout;
 using std::cin;
 using std::setw;
@@ -49,7 +50,7 @@ void divide(array<double, MEMORY_SPACE>& mem, int &loc, long double& accum) {
     // division by zero results in error; value must be greater than or less
     // than zero in order to get a defined result
     if (mem[loc] == 0) {
-        throw std::runtime_error("Error: division by zero not is undefined.");
+        throw std::runtime_error("Error: division by zero is undefined.");
     }
 
     accum /= mem[loc]; // divide accumulator by the value at loc in memory
@@ -95,18 +96,39 @@ void branchZero(int &loc, long double& accum, int &newPos) {
     }
 }
 
-void halt(long double& accum, int& inCtr, int& intReg, int& opCode, int& operand) {
+void halt(array<double, MEMORY_SPACE>& mem, long double& accum, int& inCtr, int& intReg, int& opCode, int& operand) {
     cout << "*** Simpletron execution terminated ***\n";
 
     cout << "REGISTERS:\n";
     
-    cout << left << "accumulator          " << right << "+" << setw(4) << setfill('0') << accum << '\n';
+    cout << left << "accumulator          " << right << std::showpos << setw(5) << setfill('0') << std::internal << accum << '\n';
+    cout << std::noshowpos;
     cout << left << "instructionCounter      " << right << setw(2) << setfill('0') << inCtr << '\n';
-    cout << left << "instructionRegister  " << right << "+" << setw(4) << setfill('0') << intReg << '\n';
+    cout << left << "instructionRegister  " << right << std::showpos << setw(5) << setfill('0') << std::internal << intReg << '\n';
+    cout << std::noshowpos;
     cout << left << "operationCode           " << right << setw(2) << setfill('0') << opCode << '\n';
     cout << left << "operand                 " << right << setw(2) << setfill('0') << operand << '\n';
 
+    // output the header section of memory
     cout << "\nMEMORY:\n";
+    cout << "  ";
+    for (int i = 0; i < 10; ++i) {
+        cout << right << setw(6) << setfill(' ') << i;
+    }
+    cout << '\n';
+    
+    // output the memory slots with their current values (instructions and variables)
+    int memoryPos = 0;
+    for (int i = 0; i < 100; i+=10) {
+        cout << setw(2) << setfill(' ') << i << " ";
+        for (int j = 0; j < 10; ++j) {
+            cout << right << std::showpos << setw(5) << setfill('0') << std::internal << std::round(mem[memoryPos]) << " ";
+            memoryPos++;
+        }
+        cout << std::noshowpos;
+        cout << "\n";
+    }
+    
 
     exit(0);
 }
