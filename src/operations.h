@@ -69,5 +69,5 @@ void branchNeg(int& loc, long double& accum, int& newPos);
 void branchZero(int& loc, long double& accum, int& newPos);
 
 //  Code = 43
-// halt() => halt the program
-void halt(long double& accum, int& inCtr, int& intReg, int& opCode, int& operand);
+// halt() => halt the program and dump the memory, accummulator, and registers to the screen
+void halt(array<double, MEMORY_SPACE>& mem, long double& accum, int& inCtr, int& intReg, int& opCode, int& operand);
