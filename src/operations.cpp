@@ -97,7 +97,7 @@ void branchZero(int &loc, long double& accum, int &newPos) {
 }
 
 void halt(array<double, MEMORY_SPACE>& mem, long double& accum, int& inCtr, int& intReg, int& opCode, int& operand) {
-    cout << "*** Simpletron execution terminated ***\n";
+    cout << "\n\n*** Simpletron execution terminated ***\n";
 
     cout << "REGISTERS:\n";
     
