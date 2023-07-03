@@ -13,32 +13,27 @@ The first instruction is placed in location 00 of memory, and the following inst
 Operation code  |       Meaning                                                        |
 ----------------|----------------------------------------------------------------------|
 10 (read)       | Read a word from the keyboard into a specific location in memory.    |
-----------------|----------------------------------------------------------------------|
+
 11 (write)      | Write a word from a specific location in memory to the screen.       |
-----------------|----------------------------------------------------------------------|
+
 20 (load)       | Load a word from a specific location in memory into the accumulator. |
-----------------|----------------------------------------------------------------------|
+
 21 (store)      | Store a word from the accumulator into a specific locaiton in memory.|
-----------------|----------------------------------------------------------------------|
-30 (add)        | Add a word from a specific location in memory to the word in the     |
-                | accumulator (leave result in accumulator).                           |
-----------------|----------------------------------------------------------------------|
-31 (subtract)   | Subtract a word from a specific location in memory from the word in  |
-                | the accumulator (leave result in accumulator).                       |
-----------------|----------------------------------------------------------------------|
-32 (divide)     | Divide a word from a specific location in memory into the word in    |
-                | the accumulator (leave the result in accumulator).                   |
-----------------|----------------------------------------------------------------------|
-33 (multiply)   | Multiply a word from a specific location in memory by the word in    |
-                | the accumulator (leave result in accumulator).                       |
-----------------|----------------------------------------------------------------------|
+
+30 (add)        | Add a word from a specific location in memory to the word in the accumulator (leave result in accumulator). |
+
+31 (subtract)   | Subtract a word from a specific location in memory from the word in the accumulator (leave result in accumulator). |
+
+32 (divide)     | Divide a word from a specific location in memory into the word in the accumulator (leave the result in accumulator). |
+
+33 (multiply)   | Multiply a word from a specific location in memory by the word in the accumulator (leave result in accumulator). |
+
 40 (branch)     | Branch to a specific location in memory                              |
-----------------|----------------------------------------------------------------------|
-41 (branchneg)  | Branch to a specific location in memory if the accumulator is        |
-                | negative.                                                            |
-----------------|----------------------------------------------------------------------|
-42 (branchzero) | Branch to a specific location in memory if accumulator is zero.      |
-----------------|----------------------------------------------------------------------|
+
+41 (branchneg)  | Branch to a specific location in memory if the accumulator is negative. |
+
+42 (branchzero) | Branch to a specific location in memory if accumulator is zero. |
+
 43 (halt)       | Halt--the program has completed its task                             |
-----------------|----------------------------------------------------------------------|
+
 
