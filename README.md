@@ -1,5 +1,5 @@
 # SimpletronProject
-A project implemented in C++ in which we create our own computer called Simpletron that runs Simpletron Machine Language (SML), our made up language for this project.
+A project implemented in C++ in which we create our own computer simulator called Simpletron that runs Simpletron Machine Language (SML), our made up language for this project.
 
 ## Structure of Simpletron
 Our Simpletron computer will contain a accumulator--a "special register" which will hold information before it is used for calculations or other tasks. Additionally, it will have a 100 word memory. A "word" is a signed 4-digit decimal (e.g. +3364, -1293, +0007, etc.).
@@ -8,7 +8,10 @@ An instruction is the 4-digit decimal, where the first two digits are the operat
 
 The first instruction is placed in location 00 of memory, and the following instructions are placed in the locations that follow, so 01, 02, and so on.
 
+The simulator starts by prompting the user for instructions (the program), in the SML language syntax, which are added into memory. Afterwards, the instructions are processed and run until a 43 operation code is processed. 
+
 ## Operation Codes
+The following are the supported operations codes for the SML language in this project.
 
 | Operation code  |       Meaning                                                                                                       |
 |-----------------|---------------------------------------------------------------------------------------------------------------------|
@@ -24,5 +27,4 @@ The first instruction is placed in location 00 of memory, and the following inst
 | 41 (branchneg)  | Branch to a specific location in memory if the accumulator is negative.                                             |
 | 42 (branchzero) | Branch to a specific location in memory if accumulator is zero.                                                     |
 | 43 (halt)       | Halt--the program has completed its task                                                                            |
-
 
