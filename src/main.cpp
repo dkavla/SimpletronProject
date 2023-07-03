@@ -1,4 +1,5 @@
 
+#include <exception>
 #include <iostream>
 #include <array>
 #include <iomanip>
@@ -24,9 +25,10 @@ int main() {
     cout << "*** Type the sentinel -99999 to stop entering ***\n";
     cout << "*** your program. ***\n\n";
     
-    int memSlot = 0;
+    int memSlot = 0; // current slot to fill in memory
     int instruction = 0;
 
+    // prompt user for instructions to run as a program
     while (memSlot < 100) {
         cout << right << setw(2) << setfill('0') << memSlot;
         cout << " ? ";
@@ -91,7 +93,12 @@ int main() {
                 break;
             case 32:
                 cout << "Accumulator (Before divide): " << accumulator << '\n';
-                divide(memory, operand, accumulator);
+                try {
+                    divide(memory, operand, accumulator);
+                } catch (std::exception e) {
+                    cout << "*** Attempt to divide by zero ***\n*** Simpletron execution abnormally terminated ***\n";
+                    halt(memory, accumulator, instructionCounter, instructionRegister, operationCode, operand);
+                }
                 cout << "Accumulator (After divide): " << accumulator << '\n';
                 instructionCounter++;
                 break;
