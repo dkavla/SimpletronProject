@@ -63,37 +63,41 @@ void multiply(array<double, MEMORY_SPACE>& mem, int &loc, long double&accum) {
 }
 
 void branch(int& loc, int& newPos) {
-    try {
-        loc = newPos;
-    } catch (std::out_of_range &outRng) {
-        throw std::out_of_range("Error: New position out of range.");
+    if (newPos >= MEMORY_SPACE) {
+        throw std::out_of_range("Error: New position out of range.\n");
     }
+    
+    loc = newPos;
 }
 
 void branchNeg(int &loc, long double& accum, int &newPos) {
-    try {
-        if (accum < 0) {
-            loc = newPos;
-        } else {
-            loc++;
-        }
-        return;
-    } catch (std::out_of_range &outRng) {
-        throw outRng.what();
+    
+    if (newPos >= MEMORY_SPACE) {
+        throw std::out_of_range("Error: New position out of range.\n");
     }
+
+    if (accum < 0) {
+        loc = newPos;
+    } else {
+        loc++;
+    }
+    return;
 }
 
 void branchZero(int &loc, long double& accum, int &newPos) {
-    try {
-        if (accum == 0) {
-            loc = newPos;
-        } else {
-            loc++;
-        }
-        return;
-    } catch (std::out_of_range &outRng) {
-        throw outRng.what();
+    
+    if (newPos >= MEMORY_SPACE) {
+        throw std::out_of_range("Error: New position out of range.\n");
     }
+    
+    
+    if (accum == 0) {
+        loc = newPos;
+    } else {
+        loc++;
+    }
+    return;
+    
 }
 
 void halt(array<double, MEMORY_SPACE>& mem, long double& accum, int& inCtr, int& intReg, int& opCode, int& operand) {
